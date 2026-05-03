@@ -47,7 +47,7 @@ if not NOTION_TOKEN or not DATABASE_ID:
 
 # Spaltennamen in Notion (gross/kleinschreibung beachten!)
 COL_STATUS      = "Status"
-COL_ERINNERUNG  = "Erinnerung"
+COL_ERINNERUNG  = "Fälligkeit"
 COL_RHYTHMUS    = "Rhythmus"
 COL_FAELLIGKEIT = "Nächste Fälligkeit"
 
