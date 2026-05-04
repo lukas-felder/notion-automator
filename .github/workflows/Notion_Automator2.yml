@@ -1,33 +1,38 @@
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-name: Notion Automator2
- 
+name: Notion Automator
+
 on:
+  # Wird von cron-job.org per Webhook ausgelöst
+  repository_dispatch:
+    types: [run-notion-automator]
+
+  # Backup: GitHub eigener Scheduler (stündlich als Fallback)
   schedule:
-    # Läuft alle 10 Minuten (GitHub minimum ist 5 Min., 10 Min. ist zuverlässiger)
-    - cron: '*/10 * * * *'
-  workflow_dispatch:  # Erlaubt manuelles Starten per Knopfdruck auf GitHub
- 
+    - cron: '0 * * * *'
+
+  # Manuell starten per Knopfdruck
+  workflow_dispatch:
+
 jobs:
   run-automator:
     runs-on: ubuntu-latest
- 
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - name: Repository laden
         uses: actions/checkout@v4.2.2
- 
+
       - name: Python einrichten
         uses: actions/setup-python@v5.6.0
         with:
           python-version: '3.11'
- 
+
       - name: Abhängigkeiten installieren
-        run: |
-          pip install requests python-dateutil
- 
+        run: pip install requests python-dateutil
+
       - name: Notion Automator ausführen
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DATABASE_ID: ${{ secrets.DATABASE_ID }}
         run: python notion_automator.py
- 
