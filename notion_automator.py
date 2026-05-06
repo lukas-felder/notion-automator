@@ -170,7 +170,7 @@ def check_und_wiederhole(task):
 
     rhythmus = get_rhythmus(task)
     if rhythmus is None:
-        print(f"  → get_rhytmus: '{rhytmus}'")
+        print(f"  → get_rhytmus: '{rhythmus}'")
         return
 
     erinnerung = get_erinnerung(task)
