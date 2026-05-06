@@ -165,12 +165,12 @@ def check_und_wiederhole(task):
     Nächstes Datum berechnen, Status zurücksetzen.
     """
     if get_status(task) != STATUS_DONE:
-       print(f"  → get_status: ")
+        print(f"  → get_status: ")
         return
 
     rhythmus = get_rhythmus(task)
     if rhythmus is None:
-       print(f"  → get_rhytmus: '{rhytmus}'")
+        print(f"  → get_rhytmus: '{rhytmus}'")
         return
 
     erinnerung = get_erinnerung(task)
@@ -182,7 +182,7 @@ def check_und_wiederhole(task):
 
     naechstes = naechstes_datum(erinnerung, rhythmus)
     if naechstes is None:
-       print(f"  → naechstes: '{naechstes}'")
+        print(f"  → naechstes: '{naechstes}'")
         return
 
     print(f"  → Wiederhole: '{name}' | {rhythmus}")
