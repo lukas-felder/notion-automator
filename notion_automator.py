@@ -49,7 +49,7 @@ if not NOTION_TOKEN or not DATABASE_ID:
 COL_STATUS      = "Status"
 COL_ERINNERUNG  = "Fälligkeit"
 COL_RHYTHMUS    = "Rhythmus"
-COL_FAELLIGKEIT = "Nächste Fälligkeit"
+COL_FAELLIGKEIT = "Fälligkeit"
 
 # Status-Werte (müssen exakt mit Notion übereinstimmen)
 STATUS_OFFEN       = "Not started"
